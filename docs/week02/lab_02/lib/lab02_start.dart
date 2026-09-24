@@ -208,24 +208,9 @@ class _MenuScreenState extends State<MenuScreen> {
 //
 //   * How many widget classes did you extract, and for each one: was the
 //     trigger reuse, or readability?
-//
-//     Ada 6 widget yang dipisah dari MenuScreen:
-//       - MenuHeader: readability, memindahkan bagian header yang statis
-//       - MenuEmptyState: readability, menyederhanakan tampilan kosong yang sebelumnya bersarang di dalam ternary
-//       - MenuItemCard: reuse, karena dirender satu per item oleh ListView.builder   
-//       - PriceChip: reuse, karena tampil di kartu menu dan di total bar                    
-//       - MenuSearchField: readability, membungkus TextField beserta tombol hapus
-//       - MenuTotalBar: readability, memisahkan bagian footer dari build
 //       
 //   * Which piece of state did you nearly push down into a child widget, and
 //     what would have broken if you had?
-//
-//     State yang hampir saya turunkan ke child adalah _quantities.
-//     Jika jumlah disimpan di tiap MenuItemCard, MenuTotalBar tidak punya
-//     sumber data untuk menghitung total dan jumlah menu terpilih, dan
-//     tombol Simpan tidak bisa mengosongkan semua jumlah sekaligus.
-//     Maka semua state tetap di MenuScreen, sedangkan child hanya
-//     mengirim perubahan ke atas lewat callback.
 //
 // Commit: refactor: decompose menu screen into composed widgets
 // =============================================================================
