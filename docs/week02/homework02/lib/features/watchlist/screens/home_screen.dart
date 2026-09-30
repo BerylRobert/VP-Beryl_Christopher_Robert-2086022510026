@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/anime.dart';
 import '../widgets/anime_grid.dart';
-import '../widgets/home_parts.dart';
+import '../widgets/empty_state_view.dart';
+import '../widgets/status_filter_tabs.dart';
+import '../widgets/status_picker_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

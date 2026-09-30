@@ -1,17 +1,15 @@
 enum WatchStatus { watching, completed, planToWatch, dropped }
 
-extension WatchStatusLabel on WatchStatus {
-  String get label {
-    switch (this) {
-      case WatchStatus.watching:
-        return 'Watching';
-      case WatchStatus.completed:
-        return 'Completed';
-      case WatchStatus.planToWatch:
-        return 'Plan to Watch';
-      case WatchStatus.dropped:
-        return 'Dropped';
-    }
+String watchStatusLabel(WatchStatus status) {
+  switch (status) {
+    case WatchStatus.watching:
+      return 'Watching';
+    case WatchStatus.completed:
+      return 'Completed';
+    case WatchStatus.planToWatch:
+      return 'Plan to Watch';
+    case WatchStatus.dropped:
+      return 'Dropped';
   }
 }
 
