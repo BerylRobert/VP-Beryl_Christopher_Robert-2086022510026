@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/anime.dart';
 
-/// Bottom sheet listing every [WatchStatus] so the user can pick one.
-/// Owns no state — reports the choice upward via [onSelected].
 class StatusPickerSheet extends StatelessWidget {
   final String title;
   final WatchStatus current;

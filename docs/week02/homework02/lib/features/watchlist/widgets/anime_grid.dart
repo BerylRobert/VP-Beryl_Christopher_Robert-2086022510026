@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/anime.dart';
 import 'anime_card.dart';
 
-/// Lays out a list of [Anime] as a responsive grid of [AnimeCard]s.
-/// Owns no state — purely a layout wrapper around the list it receives.
 class AnimeGrid extends StatelessWidget {
   final List<Anime> animeList;
   final ValueChanged<Anime>? onCardTap;

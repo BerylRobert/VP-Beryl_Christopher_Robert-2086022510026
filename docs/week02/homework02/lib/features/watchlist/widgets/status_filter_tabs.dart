@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/anime.dart';
 
-/// Renders one selectable chip per [WatchStatus], plus an "All" chip.
-/// Owns no state itself — [selected] and [onChanged] are fully controlled
-/// by the parent (state is hoisted to HomeScreen).
 class StatusFilterTabs extends StatelessWidget {
   final WatchStatus? selected;
   final ValueChanged<WatchStatus?> onChanged;

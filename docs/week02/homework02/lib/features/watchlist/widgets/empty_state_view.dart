@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-/// Generic empty-state placeholder. Reused wherever a list can be empty
-/// (no anime in a status, or a search with no results). Owns no state.
 class EmptyStateView extends StatelessWidget {
   final String message;
   final IconData icon;
