@@ -40,7 +40,7 @@ class EmptyStateView extends StatelessWidget {
                 const SizedBox(height: 16),
                 FilledButton.tonalIcon(
                   onPressed: onAction,
-                  icon: const Icon(Icons.filter_alt_off),
+                  icon: const Icon(Icons.refresh),
                   label: Text(actionLabel!),
                 ),
               ],

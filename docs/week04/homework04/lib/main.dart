@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'features/watchlist/models/anime.dart';
 import 'features/watchlist/screens/home_screen.dart';
 
 void main() {
@@ -6,7 +7,11 @@ void main() {
 }
 
 class AnimeWatchlistApp extends StatelessWidget {
-  const AnimeWatchlistApp({super.key});
+  // Data awal bisa diganti dari luar (dipakai oleh test).
+  // Kalau tidak diisi, aplikasi memakai data contoh seperti biasa.
+  final List<Anime> initialAnime;
+
+  const AnimeWatchlistApp({super.key, this.initialAnime = sampleAnimeList});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class AnimeWatchlistApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(initialAnime: initialAnime),
     );
   }
 }

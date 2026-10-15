@@ -7,14 +7,16 @@ import '../widgets/status_filter_tabs.dart';
 import '../widgets/status_picker_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final List<Anime> initialAnime;
+
+  const HomeScreen({super.key, this.initialAnime = sampleAnimeList});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Anime> _animeList = List.of(sampleAnimeList);
+  late final List<Anime> _animeList = List.of(widget.initialAnime);
   final TextEditingController _searchController = TextEditingController();
   WatchStatus? _selectedStatus;
   String _query = '';
@@ -55,6 +57,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  // Aksi sementara untuk daftar yang benar-benar kosong.
+  // Nanti diganti tombol "Tambah anime" setelah ada AddAnimeScreen.
+  void _loadSamples() {
+    setState(() => _animeList.addAll(sampleAnimeList));
+  }
+
   void _updateAnimeStatus(String id, WatchStatus newStatus) {
     setState(() {
       final index = _animeList.indexWhere((anime) => anime.id == id);
@@ -80,6 +88,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final filtered = _filteredList;
+
+    String? actionLabel;
+    VoidCallback? onAction;
+    if (_hasActiveFilter) {
+      actionLabel = 'Reset filters';
+      onAction = _resetFilters;
+    } else if (_animeList.isEmpty) {
+      actionLabel = 'Load samples';
+      onAction = _loadSamples;
+    }
 
     return Scaffold(
       appBar: AppBar(title: const Text('My Anime Watchlist')),
@@ -110,8 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: _isSearching
                     ? Icons.search_off
                     : Icons.movie_creation_outlined,
-                actionLabel: _hasActiveFilter ? 'Reset filters' : null,
-                onAction: _hasActiveFilter ? _resetFilters : null,
+                actionLabel: actionLabel,
+                onAction: onAction,
               ),
             )
           else
