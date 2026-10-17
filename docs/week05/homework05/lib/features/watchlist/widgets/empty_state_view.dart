@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_spacing.dart';
 
 class EmptyStateView extends StatelessWidget {
   final String message;
@@ -21,12 +22,12 @@ class EmptyStateView extends StatelessWidget {
     return Center(
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(AppSpacing.xl),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(icon, size: 48, color: colorScheme.outline),
-              const SizedBox(height: 12),
+              const SizedBox(height: AppSpacing.md),
               Text(
                 message,
                 maxLines: 3,
@@ -37,7 +38,7 @@ class EmptyStateView extends StatelessWidget {
                     ),
               ),
               if (actionLabel != null && onAction != null) ...[
-                const SizedBox(height: 16),
+                const SizedBox(height: AppSpacing.lg),
                 FilledButton.tonalIcon(
                   onPressed: onAction,
                   icon: const Icon(Icons.refresh),

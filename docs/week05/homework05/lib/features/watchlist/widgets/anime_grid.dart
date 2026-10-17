@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_spacing.dart';
 import '../models/anime.dart';
 import 'anime_card.dart';
 
@@ -21,12 +22,12 @@ class AnimeGrid extends StatelessWidget {
         final columns = _columnsFor (constraints.crossAxisExtent);
 
         return SliverPadding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(AppSpacing.md),
           sliver: SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: columns,
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
+              mainAxisSpacing: AppSpacing.md,
+              crossAxisSpacing: AppSpacing.md,
               mainAxisExtent: 360,
           ),
           delegate:  SliverChildBuilderDelegate(

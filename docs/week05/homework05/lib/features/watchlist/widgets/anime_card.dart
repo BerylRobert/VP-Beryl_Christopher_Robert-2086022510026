@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_spacing.dart';
 import '../models/anime.dart';
 
 class AnimeCard extends StatelessWidget {
@@ -17,7 +18,7 @@ class AnimeCard extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(AppSpacing.md),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,7 +41,7 @@ class AnimeCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: AppSpacing.sm),
               Text(
                 anime.title,
                 maxLines: 2,
@@ -50,7 +51,7 @@ class AnimeCard extends StatelessWidget {
                   color: colorScheme.onSurface,
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: AppSpacing.xs),
               Text(
                 anime.genre,
                 maxLines: 1,
@@ -59,9 +60,9 @@ class AnimeCard extends StatelessWidget {
                   color: colorScheme.onSurfaceVariant,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: AppSpacing.sm),
               LinearProgressIndicator(value: anime.progress),
-              const SizedBox(height: 4),
+              const SizedBox(height: AppSpacing.xs),
               Text(
                 '${anime.watchedEpisodes} / ${anime.totalEpisodes} eps',
                 maxLines: 1,
@@ -70,11 +71,11 @@ class AnimeCard extends StatelessWidget {
                   color: colorScheme.onSurfaceVariant,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: AppSpacing.sm),
               Row(
                 children: [
                   Icon(Icons.star, size: 14, color: colorScheme.tertiary),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: AppSpacing.xs),
                   Expanded(
                     child: Text(
                       anime.rating.toStringAsFixed(1),

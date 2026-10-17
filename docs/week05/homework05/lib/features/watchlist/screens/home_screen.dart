@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_spacing.dart';
 import '../models/anime.dart';
 import '../widgets/anime_grid.dart';
 import '../widgets/empty_state_view.dart';
@@ -112,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(top: 4),
+              padding: const EdgeInsets.only(top: AppSpacing.xs),
               child: StatusFilterTabs(
                 selected: _selectedStatus,
                 onChanged: _onFilterChanged,

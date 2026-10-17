@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_spacing.dart';
 import '../models/anime.dart';
 
 class StatusFilterTabs extends StatelessWidget {
@@ -17,10 +18,10 @@ class StatusFilterTabs extends StatelessWidget {
       height: 48,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md),
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4),
+            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xs),
             child: ChoiceChip(
               label: const Text('All'),
               selected: selected == null,
@@ -29,7 +30,7 @@ class StatusFilterTabs extends StatelessWidget {
           ),
           for (final status in WatchStatus.values)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xs),
               child: ChoiceChip(
                 label: Text(watchStatusLabel(status)),
                 selected: selected == status,

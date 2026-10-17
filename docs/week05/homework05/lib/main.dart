@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_theme.dart';
 import 'features/watchlist/data/sample_anime.dart';
 import 'features/watchlist/models/anime.dart';
 import 'features/watchlist/screens/home_screen.dart';
@@ -8,8 +9,6 @@ void main() {
 }
 
 class AnimeWatchlistApp extends StatelessWidget {
-  // Data awal bisa diganti dari luar (dipakai oleh test).
-  // Kalau tidak diisi, aplikasi memakai data contoh seperti biasa.
   final List<Anime> initialAnime;
 
   const AnimeWatchlistApp({super.key, this.initialAnime = sampleAnimeList});
@@ -18,13 +17,7 @@ class AnimeWatchlistApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Anime Watchlist',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFFF640A),
-          brightness: Brightness.dark,
-        ),
-      ),
+      theme: darkTheme,
       home: HomeScreen(initialAnime: initialAnime),
     );
   }

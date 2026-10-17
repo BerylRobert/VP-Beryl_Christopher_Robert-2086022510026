@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework02/core/theme/app_spacing.dart';
 
 class SearchField extends StatelessWidget {
   final TextEditingController controller;
@@ -9,7 +10,12 @@ class SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB (12, 8, 12, 4),
+      padding: const EdgeInsets.fromLTRB (
+        AppSpacing.md,
+        AppSpacing.sm,
+        AppSpacing.md,
+        AppSpacing.xs,
+      ),
       child: TextField(
         controller : controller,
         onChanged: onChanged,
